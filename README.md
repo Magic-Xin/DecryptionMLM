@@ -11,7 +11,7 @@
 ## 使用方法
 
 1. 去 [release](https://github.com/Magic-Xin/DecryptionMLM/release) 下载最新版本的 exe 文件
-2. 运行 `DecryptionMLM your_file_path.xml`
+2. 运行 `.\DecryptionMLM.exe .\example\your_file_path.xml`
 
 ---
 
