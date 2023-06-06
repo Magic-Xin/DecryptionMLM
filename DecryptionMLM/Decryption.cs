@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace DecryptionMLM
 {
@@ -64,8 +65,8 @@ namespace DecryptionMLM
             string decryptedFilePath = encryptedFilePath + "-decrypted.xml";
             
             string encryptedXml = File.ReadAllText(encryptedFilePath);
-            string decryptedXml = De(encryptedXml);
-            
+            string decryptedXml = Regex.Replace(De(encryptedXml), @"\bMlmAction\b", "Action");
+
             File.WriteAllText(decryptedFilePath, decryptedXml);
             Console.WriteLine("Decrypted XML file saved: " + decryptedFilePath);
         }
