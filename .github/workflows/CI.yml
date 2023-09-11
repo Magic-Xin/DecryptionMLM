@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: cd wasm folder
-    - run: cd ./decryption-mlm-wasm
+      run: cd ./decryption-mlm-wasm
     - name: wasm-bindgen-action
       uses: jetli/wasm-bindgen-action@v0.2.0            
     - uses: actions/checkout@v3
@@ -32,16 +32,17 @@ jobs:
       run: wasm-pack build --target web
 
     - name: cd vue folder
-    - run: cd ../decryption-mlm-vue
+      run: cd ../decryption-mlm-vue
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install
+    - name: npm install
+      run: npm install
     - name: copy pkg folder
-    - run: cp ../decryption-mlm-wasm/pkg ./
+      run: cp ../decryption-mlm-wasm/pkg ./
     - run: npm run build
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.4.3
